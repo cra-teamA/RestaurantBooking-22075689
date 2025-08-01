@@ -1,4 +1,6 @@
 from communication import SmsSender
+from python.communication import MailSender
+
 
 class TestableSmsSender(SmsSender):
     def __init__(self):
@@ -12,3 +14,14 @@ class TestableSmsSender(SmsSender):
     @property
     def send_called(self)->bool:
         return self._send_called
+
+class TestableMailSender(MailSender):
+    def __init__(self):
+        self._send_mail_count = 0
+
+    def send_mail(self, schedule):
+        self._send_mail_count += 1
+
+    @property
+    def send_mail_count(self)->int:
+        return self._send_mail_count
