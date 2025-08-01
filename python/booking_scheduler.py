@@ -14,14 +14,14 @@ class BookingScheduler:
 
     def add_schedule(self, schedule: Schedule):
         if schedule.get_date_time().minute != 0:
-            raise ValueError("Booking should be on the hour.")
+            raise ValueError("Booking should be on the hour.") #정각에만 예약 가능
 
         numberOfPeople = schedule.get_number_of_people()
         for booked_schedule in self.schedules:
             if booked_schedule.get_date_time() == schedule.get_date_time():
                 numberOfPeople += booked_schedule.get_number_of_people()
-        if numberOfPeople > self.capacity_per_hour:
-            raise ValueError("Number of people is over restaurant capacity per hour")
+        if numberOfPeople > self.capacity_per_hour: #한시간에 받는 인원 제한
+            raise ValueError("Number of people is over restaurant capacity per hour") #수용 인원 제한
 
         # 일요일에는 시스템을 오픈하지 않는다.
         #now = datetime.now()
