@@ -1,5 +1,5 @@
 from communication import SmsSender
-from python.communication import MailSender
+from communication import MailSender
 
 
 class TestableSmsSender(SmsSender):

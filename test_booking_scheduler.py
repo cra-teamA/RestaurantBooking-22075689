@@ -2,9 +2,8 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from python.test_communication import TestableSmsSender, TestableMailSender
+from test_communication import TestableSmsSender, TestableMailSender
 from schedule import Customer, Schedule
-from communication import SmsSender, MailSender
 from booking_scheduler import BookingScheduler
 
 NOT_ON_THE_HOUR = datetime.strptime("2021/03/26 09:05", "%Y/%m/%d %H:%M")
